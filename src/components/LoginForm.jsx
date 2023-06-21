@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -11,6 +13,10 @@ const LoginForm = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
   };
 
   const handleSubmit = (e) => {
@@ -24,12 +30,17 @@ const LoginForm = () => {
     if (!password) {
       errors.password = "Password is required";
     }
+    if (!captchaToken) {
+      errors.captcha = "Please complete the reCAPTCHA verification";
+    }
+
     if (Object.keys(errors).length === 0) {
       console.log("Login Confirmed");
     } else {
       setErrors(errors);
     }
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -53,9 +64,15 @@ const LoginForm = () => {
           />
           {errors.password && <span className="error">{errors.password}</span>}
         </label>
-        <button type="Submit">Login</button>
+        <ReCAPTCHA
+          sitekey="6Ldi5LkmAAAAABWEe3zYROAOJxRW10IAzrvZFQwB"
+          onChange={handleCaptchaChange}
+        />
+        {errors.captcha && <span className="error">{errors.captcha}</span>}
+        <button type="submit">Login</button>
       </form>
     </div>
   );
 };
+
 export default LoginForm;
