@@ -7,9 +7,9 @@ import Registration from "./pages/Registration";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Router>
-        <nav>
+        <nav className="navbar">
           <ul>
             <li>
               <Link to="/">Home</Link>
