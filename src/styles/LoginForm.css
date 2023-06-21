@@ -1,0 +1,64 @@
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-label {
+  display: inline-block;
+  width: 301px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  width: 100px;
+  padding: 1px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #45a049;
+}
+
+/* Adjustments for captcha field */
+.react-google-recaptcha {
+  margin-bottom: 20px;
+  width: 320px;
+  height: 78px;
+}
+
+/* Adjustments for login button */
+.form-button {
+  padding: 10px;
+  font-size: 14px;
+  width: 302px;
+}

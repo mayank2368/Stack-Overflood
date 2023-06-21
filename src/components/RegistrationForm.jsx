@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/RegistrationForm.css";
 
 const RegistrationForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -44,6 +45,9 @@ const RegistrationForm = () => {
     if (!password) {
       errors.password = "Password is required";
     }
+    if (!confirmPassword) {
+      errors.confirmPassword = "Repeat the password!";
+    }
     if (password !== confirmPassword) {
       errors.confirmPassword = "Passwords do not match";
     }
@@ -51,74 +55,94 @@ const RegistrationForm = () => {
     if (Object.keys(errors).length === 0) {
       console.log("Registered");
     } else {
-      setErrors(errors);
+      setErrors((prevErrors) => ({ ...prevErrors, ...errors }));
     }
   };
+
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
+    <div className="registration-form-container">
+      <form onSubmit={handleSubmit} className="registration-form">
+        <h3>REGISTRATION FORM</h3>
+        <div className="form-group">
+          <label htmlFor="firstName" className="form-label">
+            First Name:
+          </label>
           <input
-            type="name"
+            type="text"
+            id="firstName"
             value={firstName}
             placeholder="Enter your first name here"
             onChange={handleFirstNameChange}
-            required
+            className="form-input"
           />
           {errors.firstName && (
             <span className="error">{errors.firstName}</span>
           )}
-        </label>
-        <label>
-          Last Name:
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastName" className="form-label">
+            Last Name:
+          </label>
           <input
-            type="name"
+            type="text"
+            id="lastName"
             value={lastName}
             placeholder="Enter your last name here"
             onChange={handleLastNameChange}
-            required
+            className="form-input"
           />
-          {errors.lastName && <span className="error"> {errors.lastName}</span>}
-        </label>
-        <label>
-          Email:
+          {errors.lastName && <span className="error">{errors.lastName}</span>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="email" className="form-label">
+            Email:
+          </label>
           <input
             type="email"
+            id="email"
             value={email}
             placeholder="Enter your email here"
             onChange={handleEmailChange}
-            required
+            className="form-input"
           />
           {errors.email && <span className="error">{errors.email}</span>}
-        </label>
-        <label>
-          Password:
+        </div>
+        <div className="form-group">
+          <label htmlFor="password" className="form-label">
+            Password:
+          </label>
           <input
             type="password"
+            id="password"
             value={password}
             placeholder="Enter your password here"
             onChange={handlePasswordChange}
-            required
+            className="form-input"
           />
-          {errors.password && <span className="error"> {errors.password}</span>}
-        </label>
-        <label>
-          Re-enter Password:
+          {errors.password && <span className="error">{errors.password}</span>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="confirmPassword" className="form-label">
+            Re-enter Password:
+          </label>
           <input
             type="password"
+            id="confirmPassword"
             value={confirmPassword}
             placeholder="Re-enter your password here"
             onChange={handleConfirmPasswordChange}
-            required
+            className="form-input"
           />
           {errors.confirmPassword && (
             <span className="error">{errors.confirmPassword}</span>
           )}
-        </label>
-        <button type="submit">Register</button>
+        </div>
+        <button type="submit" className="form-button">
+          Register
+        </button>
       </form>
     </div>
   );
 };
+
 export default RegistrationForm;

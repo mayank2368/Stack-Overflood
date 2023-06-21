@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import "../styles/LoginForm.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -42,25 +43,28 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className="login-form-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h3>LOGIN FORM</h3>
+        <label className="form-label">
           Email:
           <input
             type="email"
             value={email}
             placeholder="Enter email here"
             onChange={handleEmailChange}
+            className="form-input"
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </label>
-        <label>
+        <label className="form-label">
           Password:
           <input
             type="password"
             value={password}
             placeholder="Enter password here"
             onChange={handlePasswordChange}
+            className="form-input"
           />
           {errors.password && <span className="error">{errors.password}</span>}
         </label>
@@ -69,7 +73,9 @@ const LoginForm = () => {
           onChange={handleCaptchaChange}
         />
         {errors.captcha && <span className="error">{errors.captcha}</span>}
-        <button type="submit">Login</button>
+        <button type="submit" className="form-button">
+          Login
+        </button>
       </form>
     </div>
   );

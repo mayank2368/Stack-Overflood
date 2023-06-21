@@ -7,7 +7,7 @@ import Registration from "./pages/Registration";
 
 function App() {
   return (
-    <div className="container">
+    <div className="App">
       <Router>
         <nav className="navbar">
           <ul>
