@@ -24,7 +24,7 @@ const LoginForm = () => {
     if (!password) {
       errors.password = "Password is required";
     }
-    if (Object.keys(errors).length < 0) {
+    if (Object.keys(errors).length === 0) {
       console.log("Login Confirmed");
     } else {
       setErrors(errors);
