@@ -28,6 +28,7 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: border-color 0.3s ease;
   }
   
   .error {
@@ -43,6 +44,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   .form-group {
@@ -52,3 +54,24 @@
   .error {
     color: red;
   }
+  
+  .form-login {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .form-login a:hover {
+    color: #4caf50;
+    text-decoration: none;
+  }
+  
+  /* Hover effects */
+  .form-input:hover {
+    border-color: #aaa;
+  }
+  
+  .form-button:hover {
+    background-color: #45a049;
+  }
+  

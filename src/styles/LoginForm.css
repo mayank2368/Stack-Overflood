@@ -20,12 +20,20 @@
   margin-bottom: 10px;
 }
 
-.form-input {
+.form-email {
   width: 100px;
-  padding: 1px;
+  padding: initial;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  margin-bottom: 100px;
+}
+
+.form-password {
+  width: 100px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 100px;
 }
 
 .error {
@@ -43,6 +51,7 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .form-button:hover {
@@ -62,3 +71,42 @@
   font-size: 14px;
   width: 302px;
 }
+
+.form-signup {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.form-signup a:hover {
+  color: #30e319;
+  text-decoration: wavy;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.form-checkbox label {
+  display: flex;
+  text-align: center;
+  font-size: 15px;
+}
+
+.form-checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Hover effects */
+.form-input:hover {
+  border-color: #aaa;
+}
+
+.form-button:hover {
+  background-color: #45a049;
+}
+
+

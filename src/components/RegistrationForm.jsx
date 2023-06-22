@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TextField, Button, Typography } from "@mui/material";
 import "../styles/RegistrationForm.css";
 
 const RegistrationForm = () => {
@@ -62,84 +63,80 @@ const RegistrationForm = () => {
   return (
     <div className="registration-form-container">
       <form onSubmit={handleSubmit} className="registration-form">
-        <h3>REGISTRATION FORM</h3>
-        <div className="form-group">
-          <label htmlFor="firstName" className="form-label">
-            First Name:
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            placeholder="Enter your first name here"
-            onChange={handleFirstNameChange}
-            className="form-input"
-          />
-          {errors.firstName && (
-            <span className="error">{errors.firstName}</span>
-          )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="lastName" className="form-label">
-            Last Name:
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            placeholder="Enter your last name here"
-            onChange={handleLastNameChange}
-            className="form-input"
-          />
-          {errors.lastName && <span className="error">{errors.lastName}</span>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            placeholder="Enter your email here"
-            onChange={handleEmailChange}
-            className="form-input"
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="password" className="form-label">
-            Password:
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            placeholder="Enter your password here"
-            onChange={handlePasswordChange}
-            className="form-input"
-          />
-          {errors.password && <span className="error">{errors.password}</span>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword" className="form-label">
-            Re-enter Password:
-          </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            placeholder="Re-enter your password here"
-            onChange={handleConfirmPasswordChange}
-            className="form-input"
-          />
-          {errors.confirmPassword && (
-            <span className="error">{errors.confirmPassword}</span>
-          )}
-        </div>
-        <button type="submit" className="form-button">
+        <Typography variant="h5" component="h3" align="center">
+          REGISTRATION FORM
+        </Typography>
+        <TextField
+          type="text"
+          label="First Name"
+          value={firstName}
+          placeholder="Enter your first name here"
+          onChange={handleFirstNameChange}
+          className="form-input"
+          fullWidth
+          error={Boolean(errors.firstName)}
+          helperText={errors.firstName}
+          margin="normal"
+        />
+        <TextField
+          type="text"
+          label="Last Name"
+          value={lastName}
+          placeholder="Enter your last name here"
+          onChange={handleLastNameChange}
+          className="form-input"
+          fullWidth
+          error={Boolean(errors.lastName)}
+          helperText={errors.lastName}
+          margin="normal"
+        />
+        <TextField
+          type="email"
+          label="Email"
+          value={email}
+          placeholder="Enter your email here"
+          onChange={handleEmailChange}
+          className="form-input"
+          fullWidth
+          error={Boolean(errors.email)}
+          helperText={errors.email}
+          margin="normal"
+        />
+        <TextField
+          type="password"
+          label="Password"
+          value={password}
+          placeholder="Enter your password here"
+          onChange={handlePasswordChange}
+          className="form-input"
+          fullWidth
+          error={Boolean(errors.password)}
+          helperText={errors.password}
+          margin="normal"
+        />
+        <TextField
+          type="password"
+          label="Confirm Password"
+          value={confirmPassword}
+          placeholder="Re-enter your password here"
+          onChange={handleConfirmPasswordChange}
+          className="form-input"
+          fullWidth
+          error={Boolean(errors.confirmPassword)}
+          helperText={errors.confirmPassword}
+          margin="normal"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="form-button"
+        >
           Register
-        </button>
+        </Button>
+        <div className="form-login">
+          Already have an account? <a href="/login">Login here!</a>
+        </div>
       </form>
     </div>
   );

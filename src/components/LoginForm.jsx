@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import {
+  TextField,
+  Button,
+  FormControlLabel,
+  Checkbox,
+  Typography,
+} from "@mui/material";
 import ReCAPTCHA from "react-google-recaptcha";
 import "../styles/LoginForm.css";
 
@@ -7,6 +14,11 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [captchaToken, setCaptchaToken] = useState(null);
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const handleRememberMeChange = () => {
+    setRememberMe(!rememberMe);
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -45,37 +57,61 @@ const LoginForm = () => {
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h3>LOGIN FORM</h3>
-        <label className="form-label">
-          Email:
-          <input
-            type="email"
-            value={email}
-            placeholder="Enter your email here"
-            onChange={handleEmailChange}
-            className="form-input"
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </label>
-        <label className="form-label">
-          Password:
-          <input
-            type="password"
-            value={password}
-            placeholder="Enter your password here"
-            onChange={handlePasswordChange}
-            className="form-input"
-          />
-          {errors.password && <span className="error">{errors.password}</span>}
-        </label>
+        <Typography variant="h5" component="h3" align="center">
+          LOGIN FORM
+        </Typography>
+        <TextField
+          type="email"
+          label="Email"
+          value={email}
+          placeholder="Enter your email here"
+          onChange={handleEmailChange}
+          className="form-email"
+          fullWidth
+          error={Boolean(errors.email)}
+          helperText={errors.email}
+          margin="normal"
+        />
+        <TextField
+          type="password"
+          label="Password"
+          value={password}
+          placeholder="Enter your password here"
+          onChange={handlePasswordChange}
+          className="form-password"
+          fullWidth
+          error={Boolean(errors.password)}
+          helperText={errors.password}
+          margin="normal"
+        />
+
         <ReCAPTCHA
           sitekey="6Ldi5LkmAAAAABWEe3zYROAOJxRW10IAzrvZFQwB"
           onChange={handleCaptchaChange}
         />
         {errors.captcha && <span className="error">{errors.captcha}</span>}
-        <button type="submit" className="form-button">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="form-button"
+        >
           Login
-        </button>
+        </Button>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={rememberMe}
+              onChange={handleRememberMeChange}
+              color="primary"
+            />
+          }
+          label="Remember me!"
+          className="form-checkbox"
+        />
+        <div className="form-signup">
+          Don't have an account? <a href="/register">Sign up here!</a>
+        </div>
       </form>
     </div>
   );
