@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Link } from "react-router-dom";
 import "../styles/LoginForm.css";
 
 const LoginForm = () => {
@@ -84,7 +85,9 @@ const LoginForm = () => {
           helperText={errors.password}
           margin="normal"
         />
-
+        <div className="forgot-password">
+          <Link to="/forgotpassword">Forgot password?</Link>
+        </div>
         <ReCAPTCHA
           sitekey="6Ldi5LkmAAAAABWEe3zYROAOJxRW10IAzrvZFQwB"
           onChange={handleCaptchaChange}
@@ -98,6 +101,7 @@ const LoginForm = () => {
         >
           Login
         </Button>
+
         <FormControlLabel
           control={
             <Checkbox
@@ -110,7 +114,7 @@ const LoginForm = () => {
           className="form-checkbox"
         />
         <div className="form-signup">
-          Don't have an account? <a href="/register">Sign up here!</a>
+          Don't have an account? <Link to="/register">Sign up here!</Link>
         </div>
       </form>
     </div>

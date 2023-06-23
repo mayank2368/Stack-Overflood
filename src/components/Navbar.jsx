@@ -37,7 +37,7 @@ function Navbar() {
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
         <Typography
-          variant="h6"
+          variant="h7"
           component={Link}
           to="/"
           color="inherit"
@@ -45,11 +45,19 @@ function Navbar() {
         >
           Stack-Overflood
         </Typography>
-        <Typography variant="h6" component={Link} to="/login" marginLeft="auto">
+        <Typography
+          variant="h7"
+          component={Link}
+          to="/about"
+          sx={{ marginLeft: "auto", marginRight: "58rem" }}
+        >
+          About
+        </Typography>
+        <Typography variant="h7" component={Link} to="/login" marginLeft="auto">
           Login
         </Typography>
         <Typography
-          variant="h6"
+          variant="h7"
           component={Link}
           to="/register"
           marginLeft="2rem"
@@ -57,7 +65,7 @@ function Navbar() {
           Register
         </Typography>
         <Typography
-          variant="h6"
+          variant="h7"
           component={Link}
           to="/ask"
           color="inherit"
