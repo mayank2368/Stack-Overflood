@@ -6,10 +6,14 @@ import {
   Typography,
   MenuItem,
   IconButton,
+  Box,
   Menu,
+  InputBase,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import logo_transparent from "../logo_transparent.png";
+import SearchIcon from "@mui/icons-material/Search";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,23 +40,50 @@ function Navbar() {
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
-        <Typography
-          variant="h7"
-          component={Link}
-          to="/"
-          color="inherit"
-          sx={{ flexGrow: 1 }}
-        >
-          Stack-Overflood
-        </Typography>
+        <Link to="/" style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={logo_transparent}
+            alt="Logo"
+            style={{ height: "50px", marginRight: "0.01rem" }}
+          />
+        </Link>
         <Typography
           variant="h7"
           component={Link}
           to="/about"
-          sx={{ marginLeft: "auto", marginRight: "58rem" }}
+          sx={{
+            marginLeft: "2rem",
+            marginRight: "28rem",
+          }}
         >
           About
         </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: "10rem",
+            marginLeft: "0.1rem",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            padding: "1px",
+          }}
+        >
+          <IconButton color="inherit">
+            <SearchIcon />
+          </IconButton>
+          <InputBase
+            placeholder="Search..."
+            inputProps={{ "aria-label": "search" }}
+            sx={{
+              color: "inherit",
+              border: "none",
+              marginLeft: "4px",
+              width: "100%",
+            }}
+          />
+        </Box>
+
         <Typography variant="h7" component={Link} to="/login" marginLeft="auto">
           Login
         </Typography>
@@ -67,7 +98,7 @@ function Navbar() {
         <Typography
           variant="h7"
           component={Link}
-          to="/ask"
+          to="/askquestion"
           color="inherit"
           marginLeft="2rem"
         >

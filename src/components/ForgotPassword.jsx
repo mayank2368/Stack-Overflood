@@ -24,40 +24,46 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgot-password-container">
-      <form className="forgot-password-form" onSubmit={handleSubmit}>
-        <TextField
-          type="email"
-          label="Forgot your account’s password? Enter your email address and we’ll send you a recovery link."
-          value={email}
-          placeholder="Please enter your email here"
-          onChange={handleEmailChange}
-          fullWidth
-        />
-        {successMessage ? (
-          <Typography variant="body1" className="success-message">
-            {successMessage}
+    <>
+      <div className="forgot-password-container">
+        <form className="forgot-password-form" onSubmit={handleSubmit}>
+          <Typography className="forgot-password-heading">
+            Forgot your account’s password? Enter your email address and we’ll
+            send you a recovery link.
           </Typography>
-        ) : (
-          <>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className="form-button"
-            >
-              Send recovery email
-            </Button>
-            {errors && (
-              <Typography className="error-message">{errors}</Typography>
-            )}
-          </>
-        )}
-        <div className="form-login">
-          Remembered your password? <Link to="/login">Login here!</Link>
-        </div>
-      </form>
-    </div>
+          <TextField
+            type="email"
+            label="Email"
+            value={email}
+            placeholder="Please enter your existing email here"
+            onChange={handleEmailChange}
+            fullWidth
+          />
+          {successMessage ? (
+            <Typography variant="body1" className="success-message">
+              {successMessage}
+            </Typography>
+          ) : (
+            <>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className="form-button"
+              >
+                Send recovery email
+              </Button>
+              {errors && (
+                <Typography className="error-message">{errors}</Typography>
+              )}
+            </>
+          )}
+          <div className="form-login">
+            Remembered your password? <Link to="/login">Login here!</Link>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 
