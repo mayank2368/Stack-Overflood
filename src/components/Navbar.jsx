@@ -40,33 +40,62 @@ function Navbar() {
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
-        <Link to="/" style={{ display: "flex", alignItems: "center" }}>
+        <Typography
+          variant="h7"
+          component={Link}
+          to="/"
+          style={{ display: "flex", alignItems: "center" }}
+        >
           <img
             src={logo_transparent}
             alt="Logo"
             style={{ height: "50px", marginRight: "0.01rem" }}
           />
-        </Link>
+        </Typography>
+
         <Typography
           variant="h7"
           component={Link}
           to="/about"
           sx={{
             marginLeft: "2rem",
-            marginRight: "28rem",
+            marginRight: "2rem",
           }}
         >
           About
+        </Typography>
+        <Typography
+          variant="h7"
+          component={Link}
+          to="/about"
+          sx={{
+            marginLeft: "2rem",
+            marginRight: "2rem",
+          }}
+        >
+          Products
+        </Typography>
+        <Typography
+          variant="h7"
+          component={Link}
+          to="/about"
+          sx={{
+            marginLeft: "2rem",
+            marginRight: "2rem",
+          }}
+        >
+          For teams
         </Typography>
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            marginRight: "10rem",
+            marginRight: "2rem",
             marginLeft: "0.1rem",
             border: "1px solid #ccc",
             borderRadius: "4px",
             padding: "1px",
+            width: "600px",
           }}
         >
           <IconButton color="inherit">
@@ -79,7 +108,6 @@ function Navbar() {
               color: "inherit",
               border: "none",
               marginLeft: "4px",
-              width: "100%",
             }}
           />
         </Box>
@@ -91,7 +119,7 @@ function Navbar() {
           variant="h7"
           component={Link}
           to="/register"
-          marginLeft="2rem"
+          marginLeft="4rem"
         >
           Register
         </Typography>
@@ -100,7 +128,7 @@ function Navbar() {
           component={Link}
           to="/askquestion"
           color="inherit"
-          marginLeft="2rem"
+          marginLeft="4rem"
         >
           Ask Question?
         </Typography>
